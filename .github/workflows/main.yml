@@ -31,4 +31,4 @@ jobs:
           context: .
           push: true
           tags: latest
-          labels: ${{ steps.meta.outputs.labels }}/simple-node-app
+          labels: ${{ steps.meta.outputs.labels }}/ayapay-simple-node-app
