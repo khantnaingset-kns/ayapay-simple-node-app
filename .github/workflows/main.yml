@@ -1,0 +1,21 @@
+name: GitHub Actions Demo
+run-name: Building Sample Node App
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  Install-Dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: false
+          tags: user/app:latest
