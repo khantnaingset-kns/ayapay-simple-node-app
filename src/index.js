@@ -1,7 +1,7 @@
 //Load express module with `require` directive
 const express = require("express");
 const app = express();
-const PORT = process.env.NODE_ENV;
+const PORT = process.env.PORT;
 
 //Define request response in root URL (/)
 app.get("/", function (req, res) {
@@ -25,6 +25,6 @@ app.get("/admin", function (req, res) {
 //Launch listening server on port 2019
 app.listen(PORT, function () {
   console.log(
-    `app listening on ${PORT} 2019. Your environment is ${process.env.NODE_ENV}`
+    `app listening on ${PORT}. Your environment is ${process.env.NODE_ENV}`
   );
 });
