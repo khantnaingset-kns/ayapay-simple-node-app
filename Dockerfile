@@ -1,4 +1,4 @@
-FROM node:latest-alpine
+FROM node:lts-alpine
 
 WORKDIR /usr/src/app
 
@@ -6,6 +6,6 @@ USER node
 
 COPY --chown=node:node . /usr/src/app/
 
-RUN --chown=node:node npm install
+RUN npm install
 
 CMD [ "npm", "start" ]
