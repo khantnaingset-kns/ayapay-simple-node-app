@@ -1,31 +1,30 @@
 //Load express module with `require` directive
-var express = require("express")
-var app = express()
+const express = require("express");
+const app = express();
+const PORT = process.env.NODE_ENV;
 
 //Define request response in root URL (/)
-app.get('/', function (req, res) {
-  res.send("Hello World! Your environment is " + process.env.NODE_ENV);
+app.get("/", function (req, res) {
   const response = {
     status: "Ok",
-    message: "Hello World!. Your environment is " + process.env.NODE_ENV
+    message: "Hello World!. Your environment is " + process.env.NODE_ENV,
   };
-  console.log(JSON.stringify(response));
-})
+  res.json(response).status(200);
+});
 
-app.get('/admin', function (req, res) {
-  res.send("This is Admin console, only specific IP should be access! Your environment is " + process.env.NODE_ENV);
+app.get("/admin", function (req, res) {
   const response = {
     status: "Ok",
-    message: "This is Admin console, only specific IP should be access. Your environment is " + process.env.NODE_ENV
+    message:
+      "This is Admin console, only specific IP should be access. Your environment is " +
+      process.env.NODE_ENV,
   };
-  console.log(JSON.stringify(response));
-})
+  res.json(response).status(200);
+});
 
 //Launch listening server on port 2019
-app.listen(2019, function () {
-  const response = {
-    status: "Ok",
-    message: "app listening on port 2019. Your environment is " + process.env.NODE_ENV
-  };
-  console.log(JSON.stringify(response));
-})
+app.listen(PORT, function () {
+  console.log(
+    `app listening on ${PORT} 2019. Your environment is ${process.env.NODE_ENV}`
+  );
+});
