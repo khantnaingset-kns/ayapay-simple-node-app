@@ -26,6 +26,6 @@ app.get("/admin", function (req, res) {
 //Launch listening server on port 2019
 app.listen(PORT, function () {
   console.log(
-    `app listening on ${PORT}. Your environment is ${ENV}`
+    `App listening on ${PORT}. Your environment is ${ENV}`
   );
 });
